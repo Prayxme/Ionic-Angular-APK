@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonImg, Platform, IonIcon } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { addCircleOutline, documentTextOutline, personCircleOutline, homeOutline, personAddOutline} from "ionicons/icons";
 import { HeaderComponent } from "../components/header/header.component";
 import { RouterLink } from "@angular/router";
 import { FormsModule, NgModel } from "@angular/forms";
@@ -11,12 +13,15 @@ import { NgClass, NgIf } from '@angular/common';
   templateUrl: './register-user.page.html',
   styleUrls: ['./register-user.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent, RouterLink, FormsModule, NgIf, NgClass]
+  imports: [IonContent, IonHeader, IonTitle, IonImg, IonIcon, IonToolbar, CommonModule, FormsModule, HeaderComponent, RouterLink, FormsModule, NgIf, NgClass]
 })
 export class RegisterUserPage {
   
 
   constructor() { 
+    addIcons({
+      addCircleOutline, documentTextOutline, personCircleOutline, homeOutline, personAddOutline
+    })
     
   }
 

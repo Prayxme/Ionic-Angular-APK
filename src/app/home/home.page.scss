@@ -121,3 +121,15 @@ a{
 ion-title{
   padding: 0;
 }
+
+main{
+  background-color: #F1F1F1;
+  // height: 100%;
+}
+
+
+.infoFooter{
+  flex-direction: column;
+  text-align: center; 
+  text-wrap: pretty;
+}

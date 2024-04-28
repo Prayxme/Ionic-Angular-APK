@@ -16,11 +16,7 @@ export const routes: Routes = [
   {
     path: 'header', component: HeaderComponent,
   },
-
-  {
-    path: 'examen',
-    loadComponent: () => import('./examen/examen.page').then( m => m.ExamenPage)
-  },
+  
   {
     path: 'login-user',
     loadComponent: () => import('./login-user/login-user.page').then( m => m.LoginUserPage)

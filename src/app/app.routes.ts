@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { HeaderComponent } from "./components/header/header.component";
 
 export const routes: Routes = [
   {
@@ -10,6 +11,12 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+
+
+  {
+    path: 'header', component: HeaderComponent,
+  },
+
   {
     path: 'examen',
     loadComponent: () => import('./examen/examen.page').then( m => m.ExamenPage)

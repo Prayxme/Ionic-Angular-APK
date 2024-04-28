@@ -1,13 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>loginUser</ion-title>
-  </ion-toolbar>
-</ion-header>
+<main>
+    <div class="container-fluid h-100">
+        <div class="container h-100">
+            <div class="loginUser h-100">
+                <h1 class="mb-4">¡Bienvenido!</h1>
+                <h2>Inicia Sesión</h2>
+                <form class="formularioLogin">
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Ingresa tu Correo Electronico</label>
+                      <input type="email" class="form-control" id="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Ingresa tu contraseña</label>
+                      <input type="password" class="form-control" id="password">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Ingresar</button>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">loginUser</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+                    <div class="registroButton ">
+                      ¿No tienes una cuenta?
+                      <span [routerLink]="['/register-user']">
+                        Registrate Aqui!!
+                      </span>
+
+                    </div>
+                
+                  </form>
+            </div>
+        </div>
+    </div>
+</main>

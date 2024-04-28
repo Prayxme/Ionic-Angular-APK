@@ -7,6 +7,8 @@ import { Router } from "@angular/router";
 import { addIcons } from 'ionicons';
 import { addCircleOutline, documentTextOutline, personCircleOutline} from "ionicons/icons";
 import { AlertController } from '@ionic/angular'
+import { LoginUserPage } from "../login-user/login-user.page";
+import { HeaderComponent } from "../components/header/header.component";
 
 
 @Component({
@@ -14,7 +16,7 @@ import { AlertController } from '@ionic/angular'
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonImg, IonFooter, IonIcon, IonButton, IonButtons, IonHeader, IonToolbar, IonTitle, IonContent, CommonModule],
+  imports: [IonImg, IonFooter, IonIcon, IonButton, IonButtons, IonHeader, IonToolbar, IonTitle, IonContent, CommonModule, LoginUserPage, HeaderComponent],
 })
 export class HomePage {
   constructor(public platform: Platform, private actionSheetCtrl: ActionSheetController, private alertController: AlertController, private router: Router) {

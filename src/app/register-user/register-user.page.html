@@ -1,13 +1,119 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>registerUser</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">registerUser</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <main>
+    <div class="container-fluid ">
+      <div class="container ">
+        <div class="registerUser">
+
+          <h1>¡Registrate Ahora!</h1>
+  
+          <form #formRegister="ngForm" class="formularioRegistro">
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre"
+                        [(ngModel)]="registerForm.nombre" required pattern="{{regSoloLetras}}" minlength="3"
+                        #nombre="ngModel" name="nombre">
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <p class="text-danger" *ngIf="registerForm.nombre === ''">Este campo es obligatorio</p>
+                        <p class="text-danger" *ngIf="nombre.errors && registerForm.nombre !== ''">El nombre ingresado no es
+                            valido</p>
+                    </div>
+                    <div *ngIf="!nombre.invalid">
+                        <p class="text-success">El nombre ingresado es valido!</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido"
+                        [(ngModel)]="registerForm.apellido" required pattern="{{regSoloLetras}}" minlength="3"
+                        #apellido="ngModel" name="apellido">
+                    <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                        <p class="text-danger" *ngIf="registerForm.apellido === ''">Este campo es obligatorio</p>
+                        <p class="text-danger" *ngIf="apellido.errors && registerForm.apellido !== ''">El apellido ingresado
+                            no es valido</p>
+                    </div>
+                    <div *ngIf="!apellido.invalid">
+                        <p class="text-success">El apellido ingresado es valido!</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Indique su Username"
+                    [(ngModel)]="registerForm.username" required pattern="{{regUsername}}" minlength="4"
+                    #username="ngModel" name="username">
+                <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                    <p class="text-danger" *ngIf="registerForm.username === ''">Este campo es obligatorio</p>
+                    <p class="text-danger" *ngIf="username.errors && registerForm.username !== ''">El Username solo admite
+                        letras y numeros!</p>
+                </div>
+                <div *ngIf="!username.invalid">
+                    <p class="text-success">El Username ingresado es valido!</p>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Indique su Email"
+                    [(ngModel)]="registerForm.correo" required pattern="{{regCorreo}}" #correo="ngModel" name="email">
+                <div *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                    <p class="text-danger" *ngIf="registerForm.correo === ''">Este campo es obligatorio</p>
+                    <p class="text-danger" *ngIf="correo.errors && registerForm.correo !== ''">El Email ingresado no es
+                        valido!</p>
+                </div>
+                <div *ngIf="!correo.invalid">
+                    <p class="text-success">El Email ingresado es valido!</p>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <div class="input-group" #inputPassword>
+                    <input type="password" class="form-control" id="password" placeholder="Indique su contraseña"
+                        [(ngModel)]="registerForm.password" required pattern="{{regPassword}}" minlength="5"
+                        #password="ngModel" name="contraseña">
+                    <span class="input-group-text" (click)="verPassword(inputPassword)">
+                        <i class="bi bi-eye-slash"></i>
+                    </span>
+                </div>
+    
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <p class="text-danger" *ngIf="registerForm.password === ''">Este campo es obligatorio, debe indicar una contraseña de minimo 5 caracteres!</p>
+                    <!-- <p class="text-danger" *ngIf="registerForm.password.length <= 5">La contraseña debe ser minimo de 5 caracteres!</p> -->
+                    <p class="text-danger" *ngIf="password.errors && registerForm.password !== '' ">La contraseña ingresada no es valida, debe indicar un contraseña que contenga al menos una letra, un numero y un caracter especial</p>
+                </div>
+                <div *ngIf="!password.invalid">
+                    <p class="text-success">La contraseña es valida!</p>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Indique su telefono"
+                    [(ngModel)]="registerForm.telefono" required pattern="{{regTelefono}}" minlength="6"
+                    #telefono="ngModel" name="telefono">
+    
+                <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                    <p class="text-danger" *ngIf="registerForm.telefono === ''">Este campo es obligatorio</p>
+                    <p class="text-danger" *ngIf="telefono.errors && registerForm.telefono !== ''">El numero de telefono ingresado no es valido!</p>
+                </div>
+                <div *ngIf="!telefono.invalid">
+                    <p class="text-success">El numero de telefono ingresado es valido!</p>
+                </div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary" [disabled]="!formRegister.form.valid">Registrar</button>
+
+            <div class="homeButton">
+              ¿Ya tienes una cuenta? 
+              <span [routerLink]="['/home']">¡Inicia sesión aquí!</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 </ion-content>

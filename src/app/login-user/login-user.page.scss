@@ -1,0 +1,36 @@
+.loginUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    background-color: #F1F1F1;
+    height: 100%;
+}
+
+.formularioLogin{
+    width: 90%;
+    margin: 2rem 0;
+    border: 1px solid rgba(128, 128, 128, 0.664);
+    padding: 1rem;
+    border-radius: .3rem;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+.registroButton{
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.registroButton span{
+    color: #007bff;
+    cursor: pointer;
+}
